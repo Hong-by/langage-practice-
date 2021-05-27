@@ -47,7 +47,15 @@
 
       //4. 데이터 조회 갯수 지정 : SELECT [FIELD](*) FROM [TABLE_NAME] LIMIT [number]([start(index)],[갯수]);
       //테이블 데이터 중에서 1번째부터 6개의 데이터를 역순으로 조회
-      $sql = "SELECT * FROM members ORDER BY idx DESC LIMIT 0, 6";
+      //$sql = "SELECT * FROM members ORDER BY idx DESC LIMIT 0, 6";
+
+      //5. 데이터 값 변경 : UPDATE [TABLE_NAME] SET [변경할 필드명] = [변경 값] WHERE [변경할 필드 조건];
+      //8번 인덱스 데이터의 이름을 김철수로 변경
+      //$sql = "UPDATE members SET name = '김철수' WHERE idx = 8";
+
+      //6. 데이터 삭제 : DELETE FROM [TABLE_NAME] WHERE [삭제 필드 조건]
+      // name이 김철수인 필드
+      $sql = "DELETE FROM members WHERE name = '김철수'";
 
       
       $result = mysqli_query($db_conn, $sql);
@@ -56,17 +64,17 @@
 
 
       //조회 데이터를 배열 형태로 추출 : mysqli_fetch_array()
-      while($row = mysqli_fetch_array($result)){
-        $mem_idx = $row['idx'];
-        $mem_id = $row['id'];
+      // while($row = mysqli_fetch_array($result)){
+      //   $mem_idx = $row['idx'];
+      //   $mem_id = $row['id'];
 
     ?>
     <div>
-      <p>번호 : <?=$mem_idx?></p>
-      <p>아이디 : <?=$mem_id?></p>
+      <!-- <p>번호 : <?=$mem_idx?></p>
+      <p>아이디 : <?=$mem_id?></p> -->
     </div>
     <?php
-      }
+     // }
     ?>
   </body>
 </html>
